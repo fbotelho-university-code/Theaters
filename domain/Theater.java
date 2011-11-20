@@ -3,11 +3,12 @@ import java.io.Serializable;
 
 
 public class Theater implements Serializable{
-
+	//TODO - alter reserved to BD. 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2855223915712795638L;
+	
 	/**
 	 * 
 	 */
@@ -16,6 +17,15 @@ public class Theater implements Serializable{
 	private String location;
 	private Session session;
 	
+	private String reserved; 
+	public String getReserved() {
+		return reserved;
+	}
+
+	public void setReserved(String reserved) {
+		this.reserved = reserved;
+	}
+
 	public Theater(){
 		name = location ="";
 		session = new Session(); 
