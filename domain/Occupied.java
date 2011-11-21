@@ -3,6 +3,7 @@ package domain;
 import java.io.Serializable;
 
 public class Occupied extends SeatState implements Serializable{
+	public static final String BD_VALUE = "OCCUPIED"; 
 	/**
 	 * 
 	 */
