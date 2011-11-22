@@ -14,6 +14,20 @@ public interface BDInterfaceRemote extends Remote{
 	public void get(String sessionID, RespondToAppInterface callback, String key) throws RemoteException;
 	public void get(String sessionID, RespondToAppInterface callback, String key1, String key2) throws RemoteException;
 	public void writeif(String sessionID, RespondToAppInterface callback, String key1, String key2, String value, String expected) throws RemoteException;
+	public void writeIf(String sessionID, RespondToAppInterface callback, String keyCondition, String conditionExpectedValue, Map<String,String> writes); 
 	public void reserveIfFree(String sessionID, RespondToAppInterface callback, String key) throws RemoteException;
+
+	/**
+ * Write if based on condition variable present 
+ * @param idSession
+ * @param callback
+ * @param idTheater
+ * @param newPlace
+ * @param bdValue
+ * @param valuesToWrite
+ */
+	public void writeif(String idSession, RespondToAppInterface callback,
+			String idTheater, String newPlace, String bdValue,
+			Map<String, String> valuesToWrite) throws RemoteException;
 
 }

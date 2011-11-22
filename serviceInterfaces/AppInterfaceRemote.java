@@ -14,5 +14,5 @@ public interface AppInterfaceRemote extends Remote{
 	public void getTheaters(String idSession, RespondToWebServerInterface resp) throws RemoteException; 
 	public void getZones(String idSession, RespondToWebServerInterface resp ) throws RemoteException; 
 	public void getTheaters(String idSession, String zone, RespondToWebServerInterface resp) throws RemoteException;
-
 }
+
