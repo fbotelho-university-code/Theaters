@@ -16,7 +16,7 @@ public interface RespondToWebServerInterface extends Remote{
 	// Receveive ResponseToChangeReservation is the callback from changeReservation. With him comes the reserved place for the sessionId in the app. All rest can be inferred from the result.  
 
 	public void receiveResponseToChangeReservation(String reservedPlace,String idSession) throws RemoteException; 
-	
+		
 	public void receiveConfirmationOfBuy(String idSession) throws RemoteException; 
 	public void receiveTheaters(Collection<Theater> theaters, String idSession) throws RemoteException;
 	public void receiveZones(Collection<String> zones, String idSession) throws RemoteException;
