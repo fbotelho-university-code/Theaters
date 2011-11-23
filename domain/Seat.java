@@ -43,7 +43,7 @@ public   class Seat implements Serializable{
 	public  Seat clone(){ return new Seat(this); }
 
 
-	public SeatState getState() {
+	public SeatState getState(){
 		return state.clone();
 	}
 

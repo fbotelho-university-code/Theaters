@@ -20,5 +20,6 @@ public interface RespondToWebServerInterface extends Remote{
 	public void receiveConfirmationOfBuy(String idSession) throws RemoteException; 
 	public void receiveTheaters(Collection<Theater> theaters, String idSession) throws RemoteException;
 	public void receiveZones(Collection<String> zones, String idSession) throws RemoteException;
-	public void error(String string);
+	public void error(String string) throws RemoteException;
+
 }
