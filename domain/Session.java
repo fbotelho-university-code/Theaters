@@ -11,7 +11,9 @@ public class Session implements Serializable{
 	 * 
 	 */
 
-	public static final String BD_MOVIE_NAME = "movie_name"; 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = -1519121059578595718L;
 	private Map<String, Seat> seats; 
 	private String movie;
@@ -142,8 +144,7 @@ public class Session implements Serializable{
 
 
 	public Map<String, Seat> getSeats() {
-		return seats; 
-		//return cloneMap(seats);
+		return cloneMap(seats);
 	}
 
 

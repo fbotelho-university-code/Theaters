@@ -22,5 +22,4 @@ public interface RespondToWebServerInterface extends Remote{
 	public void receiveTheaters(Map<String, Map<String, String>> map, String idSession) throws RemoteException;
 	public void receiveZones(Collection<String> map, String idSession) throws RemoteException;
 	public void error(String string) throws RemoteException;
-
 }

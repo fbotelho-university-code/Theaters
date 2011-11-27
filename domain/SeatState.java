@@ -2,7 +2,7 @@ package domain;
 
 import java.io.Serializable;
 
-public abstract class SeatState implements Serializable, IHaveABDValue{
+public abstract class SeatState implements Serializable{
 	
 	/**
 	 * 
