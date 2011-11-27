@@ -3,6 +3,12 @@ package domain;
 import java.io.Serializable;
 
 public class Reserved extends SeatState implements Serializable{
+	@Override
+	public String toString() {
+		return "Reserved";
+	}
+
+	
 	public static final String BD_VALUE = "RESERVED"; 
 	/**
 	 * 
@@ -10,10 +16,10 @@ public class Reserved extends SeatState implements Serializable{
 	private static final long serialVersionUID = 1528975515258859292L;
 	public static final Reserved instance = new Reserved(); 
 	
-
 	private Reserved(){
 	
 	}
+	
 	
 	@Override
 	public SeatState clone() {

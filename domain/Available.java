@@ -3,6 +3,11 @@ package domain;
 import java.io.Serializable;
 
 public class Available extends SeatState implements Serializable{
+	@Override
+	public String toString() {
+		return "Available";
+	}
+
 	public static final  String BD_VALUE = "AVAILABLE"; 
 	/**
 	 * 
