@@ -30,7 +30,7 @@ public class Session implements Serializable{
 	
 	public static Session getMap(Map<String,String> values){
 		Session se = new Session();
-		Map<String,SeatState> myValues = new HashMap<String,SeatState>();
+		Map<String,Seat> myValues = new HashMap<String,Seat>();
 		
 		for (char l = 'A' ; l < 'Z' ; l++){
 			for (int i =0; i < 40 ; i++){
@@ -56,11 +56,13 @@ public class Session implements Serializable{
 				}
 				//else  (If we found a valid seat state)
 				if (state != null){
-					Seat s = new Seat(String.valueOf(id), state);
-					myValues.put(s.getId(), state);
+					Seat s = new Seat(id, state);
+					myValues.put(s.getId(), s);
 				}
 			}
 		}
+		se.setSeats(myValues); 
+		
 		return se;
 	}
 	
