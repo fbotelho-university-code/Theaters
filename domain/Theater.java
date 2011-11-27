@@ -23,7 +23,6 @@ public class Theater implements Serializable{
 		String location = values.get(BD_LOCATION); 
 		String session_movie = values.get(Session.BD_MOVIE_NAME);
 		String reserved = values.get(BD_RESERVED);
-		HashMap<String, Seat> seats = new HashMap<String,Seat>();
 
 		Session s= Session.getMap(values);
 		s.setMovie(session_movie); 

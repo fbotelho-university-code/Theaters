@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import domain.Available;
+import domain.Seat;
 import domain.Session;
 import domain.Theater;
 
@@ -33,6 +35,22 @@ public class TesteMap {
 			val.add(t); 
 		}
 
+		Theater t = new Theater(); // da te o teatro. 
+		t.getReserved(); // Dá -te a chave do lugar que é teu. O booleano de retorno de buy basicamente diz-te se isso tá a null ou nao. PODE ESTAR A NULO!
+		Map<String,Seat> se = t.getSession().getSeats(); 
+		
+		for (char l = 'A' ; l < 'Z' ; l++){
+			for (int i =0; i < 40 ; i++){
+				String chave_seat = l + "" + i; 
+				Seat s = se.get(chave_seat); // Tens o lugar
+				
+				if (s.getState() instanceof Available){
+					// print available; 
+				}
+				
+			}
+			
+		}
 		Map<String,Map<String,String>> map = new HashMap<String,Map<String,String>>();  
 		
 		for (Theater myT : val){
