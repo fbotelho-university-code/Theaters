@@ -15,6 +15,7 @@ public class Session implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -1519121059578595718L;
+	public static final String BD_MOVIE_NAME = "movie_name";
 	private Map<String, Seat> seats; 
 	private String movie;
 

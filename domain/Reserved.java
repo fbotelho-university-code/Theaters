@@ -30,4 +30,11 @@ public class Reserved extends SeatState implements Serializable{
 		if (o != null && o.getClass() == Reserved.class) return true;
 		return false; 
 	}
+
+
+	@Override
+	public String myBdValue() {
+		return BD_VALUE; 
+		
+	}
 }

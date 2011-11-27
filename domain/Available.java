@@ -29,5 +29,10 @@ public class Available extends SeatState implements Serializable{
 		if (o != null && o.getClass() == Available.class) return true;
 		return false; 
 	}
+
+	@Override
+	public String myBdValue() {
+		return BD_VALUE; 
+	}
 	
 }

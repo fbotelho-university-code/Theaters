@@ -29,5 +29,11 @@ public class Occupied extends SeatState implements Serializable{
 		if (o != null && o.getClass() == Occupied.class) return true;
 		return false; 
 	}
+
+	@Override
+	public String myBdValue() {
+		// TODO Auto-generated method stub
+		return BD_VALUE; 
+	}
 }
 
