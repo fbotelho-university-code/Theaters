@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 
 public class Session implements Serializable{
@@ -15,23 +16,91 @@ public class Session implements Serializable{
 	private Map<String, Seat> seats; 
 	private String movie;
 
-
-	public Session(){
-		this.seats = new HashMap<String,Seat>(); 
-		this.movie = ""; 
+	
+	
+	public static Map<String,String> getSeats(Session s){
+		Map<String,String> map = new HashMap<String,String>();
 		
+		for(Seat seat : s.getSeats().values()){
+			map.put(seat.getId(), seat.getState().myBdValue()); 
+		}
+		
+		return map;
 	}
+	
+	public static Session getMap(Map<String,String> values){
+		Session se = new Session();
+		Map<String,SeatState> myValues = new HashMap<String,SeatState>();
+		
+		for (char l = 'A' ; l < 'Z' ; l++){
+			for (int i =0; i < 40 ; i++){
+				//TODO - Mário martins stated that this was a big bottleneck when writing to files
+				String id = l + "" + i;
+				SeatState state = null; 
+				String value = values.get(id);
+
+				if (value != null){
+					if (value.equals(Occupied.BD_VALUE)){
+						state = Occupied.instance; 
+					}
+					else{
+						if (value.equals(Reserved.BD_VALUE)){
+							state = Reserved.instance; 
+						}
+						else{
+							if (value.equals(Available.BD_VALUE)){
+								state = Reserved.instance; 
+							}
+						}
+					}
+				}
+				//else  (If we found a valid seat state)
+				if (state != null){
+					Seat s = new Seat(String.valueOf(id), state);
+					myValues.put(s.getId(), state);
+				}
+			}
+		}
+		return se;
+	}
+	
+	
+	public Session(){
+		this.seats = new HashMap<String,Seat>();
+		
+		for (char l = 'A' ; l < 'Z' ; l++){
+			for (int i =0; i < 40 ; i++){
+				String id = l + "" + i;
+				Seat s = new Seat(id, Available.instance);
+				seats.put(id, s); 
+			}
+		}
+		this.movie = ""; 
+	}
+	
 	
 	/**
 	 * @param seats
 	 * @param movie
 	 */
 	public Session(Map<String, Seat> seats, String movie) {
-
 		this.seats = seats;
 		this.movie = movie;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder s = new StringBuilder(); 
+		s.append("Session [seats=" + seats + ", movie=" + movie +  "]"); 
+		s.append("[ "); 
+
+		for (Seat en : seats.values()){
+			s.append(en.getId() + " - " + en.getState().toString()); 
+		}
+		
+		return movie; 
+	}
+
 	public Session(Session s){
 		this.seats = s.getSeats(); 
 		this.movie = s.getMovie(); 

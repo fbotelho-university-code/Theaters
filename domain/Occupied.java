@@ -20,6 +20,11 @@ public class Occupied extends SeatState implements Serializable{
 		return instance; 
 	}
 	
+	@Override
+	public String toString() {
+		return "Occupied";
+	}
+
 	public boolean equals(Object o){
 		if (o != null && o.getClass() == Occupied.class) return true;
 		return false; 
