@@ -35,7 +35,7 @@ public class Session implements Serializable{
 		Map<String,Seat> myValues = new HashMap<String,Seat>();
 		
 		for (char l = 'A' ; l <= 'Z' ; l++){
-			for (int i =0; i <= 40 ; i++){
+			for (int i =0; i < 40 ; i++){
 				//TODO - Mário martins stated that this was a big bottleneck when writing to files
 				String id = l + "" + i;
 				SeatState state = null; 
@@ -72,7 +72,7 @@ public class Session implements Serializable{
 	public Session(){
 		this.seats = new HashMap<String,Seat>();
 		
-		for (char l = 'A' ; l < 'Z' ; l++){
+		for (char l = 'A' ; l <= 'Z' ; l++){
 			for (int i =0; i < 40 ; i++){
 				String id = l + "" + i;
 				Seat s = new Seat(id, Available.instance);
