@@ -51,11 +51,12 @@ public class Session implements Serializable{
 						}
 						else{
 							if (value.equals(Available.BD_VALUE)){
-								state = Reserved.instance; 
+								state = Available.instance; 
 							}
 						}
 					}
 				}
+				
 				//else  (If we found a valid seat state)
 				if (state != null){
 					Seat s = new Seat(id, state);
@@ -149,6 +150,7 @@ public class Session implements Serializable{
 
 
 	public void setSeats(Map<String, Seat> seats) {
+		
 		this.seats = cloneMap(seats);
 	}
 

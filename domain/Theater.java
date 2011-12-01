@@ -19,15 +19,15 @@ public class Theater implements Serializable{
 	
 	public static Theater pseudoFactory(Map<String, String> values ) {
 			// I do regret the following code. 
+		
 		String name = values.get(BD_NAME); 
 		String location = values.get(BD_LOCATION); 
 		String session_movie = values.get(Session.BD_MOVIE_NAME);
 		String reserved = values.get(BD_RESERVED);
-
+		
 		Session s= Session.getMap(values);
 		s.setMovie(session_movie); 
-		
-		
+
 		return new Theater(name, location, s, reserved); 
 	}
 	
@@ -173,8 +173,14 @@ public class Theater implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Theater [name=" + name + ", location=" + location
-				+ ", session=" + session + ", reserved=" + reserved + "]" ;
+		StringBuilder s = new StringBuilder(); 
+		s.append("Theater [name=" + name + ", location=" + location
+				+ ", session=" + session + ", reserved=" + reserved + "]" ); 
+
+		for (Seat se : this.session.getSeats().values()){
+			s.append(se.getState().toString() + ";"); 
+		}
+		return s.toString(); 
 	}
 	
 	public String getLocation() {

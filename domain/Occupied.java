@@ -11,8 +11,9 @@ public class Occupied extends SeatState implements Serializable{
 	public static final Occupied instance = new Occupied(); 
 	
 
-	private Occupied(){
 	
+	private Occupied(){
+		
 	}
 	
 	@Override
